@@ -5,7 +5,6 @@ public class StatementApp {
     private static final String url = "jdbc:mysql://localhost:3306/mydb";
     private static final String userName = "root";
     private static final String pwd = "Pdk@12398";
-
     public static void showRecord(Connection conn, Statement st) throws Exception
     {
         int record = 0;
@@ -25,6 +24,7 @@ public class StatementApp {
             System.out.println("Makrs : " + marks);
             System.out.println("----------------------------------------");
         }
+        rs.close();
         
     }
     public static void insertRecord(Connection conn, Statement st) throws Exception
@@ -121,5 +121,8 @@ public class StatementApp {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
+        stmt.close();
+        sc.close();
+        con.close();
+}
 }
